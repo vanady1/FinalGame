@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerHealth : Health
 {
-    public event UnityAction PlayerDied;
+    public event UnityAction Died;
     public event UnityAction<int> HealthChanged;
 
     protected override void Start()
@@ -22,7 +22,7 @@ public class PlayerHealth : Health
 
     protected override void Die()
     {
-        PlayerDied.Invoke();
+        Died.Invoke();
         gameObject.SetActive(false);
     }
 }

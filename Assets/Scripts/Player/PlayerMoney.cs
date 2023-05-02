@@ -8,19 +8,19 @@ public class PlayerMoney : MonoBehaviour
     [SerializeField] private int _money;
     private PlayerShoot _playerShoot;
 
-    public event UnityAction<int> MoneyChanged;
+    public event UnityAction<int> Changed;
     public int Money => _money;
 
     public void AddMoney(int amount)
     {
         _money += amount;
-        MoneyChanged.Invoke(_money);
+        Changed.Invoke(_money);
     }
 
     public void BuyWeapon(Weapon weapon)
     {
         _money -= weapon.Price;
-        MoneyChanged.Invoke(_money);
+        Changed.Invoke(_money);
         _playerShoot.SetCurrentWeapon(weapon);
     }
 

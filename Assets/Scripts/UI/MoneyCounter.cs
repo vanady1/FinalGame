@@ -15,12 +15,12 @@ public class MoneyCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerMoney.MoneyChanged += OnMoneyChanged;
+        _playerMoney.Changed += OnMoneyChanged;
     }
 
     private void OnDisable()
     {
-        _playerMoney.MoneyChanged -= OnMoneyChanged;
+        _playerMoney.Changed -= OnMoneyChanged;
     }
 
     private void OnMoneyChanged(int money)

@@ -8,7 +8,7 @@ public class EnemyHealth : Health
     [SerializeField] private GameObject _deathEffect;
     [SerializeField] private int _reward;
 
-    public event UnityAction<Enemy> EnemyDied; 
+    public event UnityAction<Enemy, int> Died; 
 
     protected override void Die()
     {
@@ -21,8 +21,7 @@ public class EnemyHealth : Health
             Instantiate(_deathEffect, transform.position, new Quaternion(0f, 180f, 0f, 1));
         }
 
-        EnemyDied.Invoke(GetComponent<Enemy>());
-        GetComponent<Enemy>().Target.GetComponent<PlayerMoney>().AddMoney(_reward);
+        Died.Invoke(GetComponent<Enemy>(), _reward);
         gameObject.SetActive(false);
     }
 

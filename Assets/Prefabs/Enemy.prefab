@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070ba39ae04d8248bb4089d9202e348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reward: 10
 --- !u!114 &3632123106409301134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0f95ab2b619e5428bc9ec0713ac450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 3632123106409301136}
+  _targetState: {fileID: 3632123106409301141}
 --- !u!114 &3632123106409301139
 MonoBehaviour:
   m_ObjectHideFlags: 0

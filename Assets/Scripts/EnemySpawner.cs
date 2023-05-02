@@ -75,7 +75,7 @@ public class EnemySpawner : ObjectPool
         if (TryGetObject(out GameObject enemy))
         {
             enemy.GetComponent<EnemyHealth>().ResetHealth();
-            enemy.GetComponent<EnemyHealth>().EnemyDied += OnEnemyDied;
+            enemy.GetComponent<EnemyHealth>().Died += OnEnemyDied;
             enemy.transform.position = GetRandomSpawnPosition();
             enemy.transform.rotation = Quaternion.identity;
             enemy.SetActive(true);
@@ -91,14 +91,15 @@ public class EnemySpawner : ObjectPool
         _currentWave = _waves[index];
     }
 
-    private void OnEnemyDied(Enemy enemy)
+    private void OnEnemyDied(Enemy enemy, int reward)
     {
         if (++_died == _spawned)
         {
             AllEnemyDied?.Invoke();
         }
 
-        enemy.GetComponent<EnemyHealth>().EnemyDied -= OnEnemyDied;
+        _target.GetComponent<PlayerMoney>().AddMoney(reward);
+        enemy.GetComponent<EnemyHealth>().Died -= OnEnemyDied;
     }
 
     private void OnDrawGizmosSelected()

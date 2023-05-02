@@ -11,12 +11,12 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.PlayerDied += OnPlayerDied;
+        _player.Died += OnPlayerDied;
     }
 
     private void OnDisable()
     {
-        _player.PlayerDied -= OnPlayerDied;
+        _player.Died -= OnPlayerDied;
     }
 
     public void Pause()
